@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax TeX Test Page</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" async
+  src="MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<script type="text/javascript" src="jquery.min.js"></script>
+</head>
+<body>
+<textarea id="MathInput" rows="10" style="width: 100%;"></textarea>
+<p id="preview">$\sqrt{N\times3}$</p>
+</body>
+<script type="text/javascript">
+	$(document).ready(function () {
+
+    
+    $("#MathInput").on('input', function(){
+    	var val = $("#MathInput").val();
+    	console.log(val)
+    	$("#preview").text(val)
+    	MathJax.Hub.Queue(["Typeset", MathJax.Hub, "preview"]);
+    })
+    
+});
+</script>
+</html>
